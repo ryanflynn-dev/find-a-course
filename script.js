@@ -1,10 +1,3 @@
-fetch("./json/courses.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => console.error("Error loading the course data:", error));
-
 function searchCourses(searchTerm) {
   fetch("./json/courses.json")
     .then((response) => response.json())
@@ -15,9 +8,8 @@ function searchCourses(searchTerm) {
 
       displaySearchResults(filteredCourses);
     })
-    .catch((error) => console.error("Error searching courses:", error));
+    .catch((error) => console.error("Error searching courses: ", error));
 }
-
 function displaySearchResults(courses) {
   const resultsContainer = document.getElementById("searchResults");
   resultsContainer.innerHTML = "";
@@ -36,19 +28,16 @@ function displaySearchResults(courses) {
             <p>Course UKPRN: ${course.PROVIDER_UKPRN}</p>
         `;
     resultsContainer.appendChild(courseElement);
-
     if (course.ATTENDANCE_PATTERN === 1) {
       courseElement.innerHTML += "<p>Attendance Pattern: Day Time</p>";
     }
   });
 }
-
 document.getElementById("searchForm").addEventListener("submit", (event) => {
   event.preventDefault();
   const searchTerm = document.getElementById("searchQuery").value;
   searchCourses(searchTerm);
 });
-
 document.getElementById("searchQuery").addEventListener("input", (event) => {
   const searchTerm = event.target.value;
   searchCourses(searchTerm);
