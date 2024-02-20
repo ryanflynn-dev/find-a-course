@@ -1,8 +1,6 @@
 fetch("./json/courses.json")
   .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  })
+  .then((data) => {  })
   .catch((error) => console.error("Error loading the course data:", error));
 
 function searchCourses(searchTerm) {
