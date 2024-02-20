@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-fetch("./json/courses.json")
-  .then((response) => response.json())
-  .then((data) => {  })
-  .catch((error) => console.error("Error loading the course data:", error));
-
->>>>>>> d0b931da1eacbae9d869aceb21cdeca933a846cc
 function searchCourses(searchTerm) {
   fetch("./json/courses.json")
     .then((response) => response.json())
