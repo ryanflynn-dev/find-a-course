@@ -1,4 +1,4 @@
-function searchCourses(searchTerm) {
+const searchCourses = (searchTerm) => {
   fetch("./json/courses.json")
     .then((response) => response.json())
     .then((data) => {
@@ -9,8 +9,8 @@ function searchCourses(searchTerm) {
       displaySearchResults(filteredCourses);
     })
     .catch((error) => console.error("Error searching courses: ", error));
-}
-function displaySearchResults(courses) {
+};
+const displaySearchResults = (courses) => {
   const resultsContainer = document.getElementById("searchResults");
   resultsContainer.innerHTML = "";
 
@@ -32,7 +32,7 @@ function displaySearchResults(courses) {
       courseElement.innerHTML += "<p>Attendance Pattern: Day Time</p>";
     }
   });
-}
+};
 document.getElementById("searchForm").addEventListener("submit", (event) => {
   event.preventDefault();
   const searchTerm = document.getElementById("searchQuery").value;
